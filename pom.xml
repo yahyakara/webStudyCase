@@ -20,6 +20,7 @@
         <gherkin.version>26.2.0</gherkin.version>
         <allure.version>2.22.1</allure.version>
         <poi.version>5.2.3</poi.version>
+        <gson.version>2.10.1</gson.version>
     </properties>
 
     <dependencies>
@@ -67,11 +68,26 @@
             <version>2.20.0</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>2.0.7</version>
         </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>

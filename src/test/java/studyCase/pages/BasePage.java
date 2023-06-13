@@ -77,13 +77,17 @@ public class BasePage {
         return e.getText();
     }
 
-    protected void type(WebElement element, String text) {
-        getScenario().log(String.format("Typing : %s  to %s", text, element));
-        WebElement e = wait.until(ExpectedConditions.visibilityOf(element));
+    protected void type(By locator, String text) {
+        getScenario().log(String.format("Typing : %s  to %s", text, locator));
+        WebElement e = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         e.clear();
         e.sendKeys(text);
     }
 
+    protected void waitForLoaderToDisappear() {
+        By loaderLocator = By.cssSelector(".q-loader");
+        waitUntilElementDisappear(loaderLocator);
+    }
 
     protected void waitUntilElementDisappear(By locator) {
         getScenario().log(String.format("Waiting for %s to appear", locator));
@@ -136,9 +140,18 @@ public class BasePage {
         return title;
     }
 
+    protected int getCurrentElementCount(By locator) {
+        return  waitAndFindElements(locator).size();
+    }
     protected String getAttributeValue(WebElement element, String attributeName) {
         WebElement e = wait.until(ExpectedConditions.visibilityOf(element));
         return e.getAttribute(attributeName);
+    }
+
+    protected void scrollToEndOfPage() {
+        Actions actions = new Actions(driver);
+        WebElement body = waitAndFindElement(By.tagName("body"));
+        actions.moveToElement(body).sendKeys("\uE00F").perform();
     }
 
     protected void scrollToElement(WebElement element) {
