@@ -2,7 +2,7 @@ Feature: Login to the website
   As a user, I want to log in to my Trendyol account.
 
   Background:
-    Given I go to login page
+    Given I am on login page
 
   Scenario: Log in with valid username and password
     Then I should be on the login page
@@ -10,7 +10,7 @@ Feature: Login to the website
     And I should see my full name in the navigation bar
 
   Scenario: User should be able to view the password by clicking on the eye icon
-    Given I go to login page
+    Given I am on login page
     When I fill the login form "test_email@gmail.com" and "123456"
     When I show the hided password
     Then I should be able to view the password

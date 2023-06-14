@@ -24,7 +24,7 @@ public class LoginSteps {
         headerComponent = PageFactory.getHeaderComponent(context.driver);
     }
 
-    @Given("I go to login page")
+    @Given("I am on login page")
     public void iGoToLoginPage() {
         loginPage.navigateLoginPage();
     }
@@ -91,5 +91,9 @@ public class LoginSteps {
     @Then("I shouldn't be able to view the password")
     public void iShouldNotBeAbleToViewThePassword() {
         loginPage.validatePasswordInputType("password");
+    }
+
+    @Given("I go to home page")
+    public void iGoToHomePage() {
     }
 }
