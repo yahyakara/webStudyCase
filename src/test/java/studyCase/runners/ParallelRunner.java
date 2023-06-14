@@ -16,7 +16,7 @@ public class ParallelRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
-        System.setProperty("dataproviderthreadcount", "3");
+        //System.setProperty("dataproviderthreadcount", "3");
         return super.scenarios();
     }
 }
