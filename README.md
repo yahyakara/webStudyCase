@@ -23,7 +23,7 @@ cd /webStudyCase
 BROWSER=chrome_remote RUNNER=runner.xml TAG="@login" docker-compose up --build
 ```
 
-### To run on local server with mavne
+### To run on local server with maven
 
 ```sh
 cd /webStudyCase
