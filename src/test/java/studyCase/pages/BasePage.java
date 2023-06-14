@@ -13,6 +13,7 @@ import studyCase.configurations.ConfigLoader;
 import java.net.URL;
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 import static studyCase.configurations.TestContext.getScenario;
@@ -106,9 +107,14 @@ public class BasePage {
         }
     }
 
-    public void setLocalStorageItem(String key, String value) {
+    protected void setLocalStorageItem(String key, String value) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript(String.format("window.localStorage.setItem('%s', '%s');", key, value));
+    }
+
+    protected  void injectCookies(Cookie cookie) {
+        driver.manage().addCookie(cookie);
+        refreshThePage();
     }
 
 

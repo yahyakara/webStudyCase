@@ -6,6 +6,9 @@ public class PageFactory {
 
     private static LoginPage loginPage;
     private static HeaderComponent headerComponent;
+
+    private static HomePage homePage;
+
     public static LoginPage getLoginPage(WebDriver driver){
         return loginPage == null ? new LoginPage(driver) : loginPage;
     }
@@ -13,6 +16,9 @@ public class PageFactory {
         return headerComponent == null ? new HeaderComponent(driver) : headerComponent;
     }
 
+    public static HomePage getHomePage(WebDriver driver){
+        return homePage == null ? new HomePage(driver) : homePage;
+    }
 
 
 }
