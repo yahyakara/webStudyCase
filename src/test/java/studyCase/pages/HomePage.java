@@ -1,5 +1,6 @@
 package studyCase.pages;
 
+import io.qameta.allure.Allure;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.openqa.selenium.By;
@@ -12,10 +13,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
@@ -25,11 +23,9 @@ import java.util.*;
 
 public class HomePage extends BasePage {
     private final String EXCEL_FILE_PATH = "target/";
-
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
     By boutiqueWidgetBy = By.cssSelector(".widget-small-with-name");
     By boutiqueNameBy = By.cssSelector(".name");
 
@@ -130,8 +126,8 @@ public class HomePage extends BasePage {
             workbook.write(outputStream);
             workbook.close();
             outputStream.close();
-
-
+            FileInputStream fileStream = new FileInputStream(EXCEL_FILE_PATH + fileName);
+            Allure.addAttachment(fileName, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileStream, ".xlsx");
         } catch (IOException e) {
             e.printStackTrace();
         }
