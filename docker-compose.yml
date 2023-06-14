@@ -57,6 +57,7 @@ services:
       - BROWSER=${BROWSER}
       - RUNNER=${RUNNER}
       - TAG=${TAG}
+      - THREAD_COUNT=${THREAD_COUNT}
 
     networks:
       testsnw: { }
