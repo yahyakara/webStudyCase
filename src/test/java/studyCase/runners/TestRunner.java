@@ -12,11 +12,10 @@ import org.testng.annotations.DataProvider;
         glue = {"studyCase"},
         features = "src/test/resources/features"
 )
-public class ParallelRunner extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
-        System.setProperty("dataproviderthreadcount", "3");
         return super.scenarios();
     }
 }
