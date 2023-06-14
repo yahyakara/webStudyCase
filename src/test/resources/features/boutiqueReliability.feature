@@ -1,3 +1,4 @@
+@regression @boutique
 Feature: Boutique Links and Loading Durations
   As a user
   I want to collect boutique information and measure the loading durations of boutique links
