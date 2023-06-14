@@ -1,3 +1,4 @@
+@regression @login
 Feature: Login to the website
   As a user, I want to log in to my Trendyol account.
 
@@ -27,8 +28,10 @@ Feature: Login to the website
     Then I should see the login failed error "<ErrorMessage>"
 
     Examples:
-      | E-Mail                   | Password | ErrorMessage                               |
-      | wrongemail0020@gmail.com | 123456   | E-posta adresiniz ve/veya şifreniz hatalı. |
-      | mail0020@gmail.com       |          | Lütfen şifrenizi giriniz.                  |
-      |                          | 123456   | Lütfen geçerli bir e-posta adresi giriniz. |
-      |                          |          | Lütfen geçerli bir e-posta adresi giriniz. |
+      | E-Mail                   | Password     | ErrorMessage                               |
+      | wrongemail0020@gmail.com | 123456       | E-posta adresiniz ve/veya şifreniz hatalı. |
+      | mail0020@gmail.com       |              | Lütfen şifrenizi giriniz.                  |
+      |                          | 123456       | Lütfen geçerli bir e-posta adresi giriniz. |
+      |                          |              | Lütfen geçerli bir e-posta adresi giriniz. |
+      | Fail example             | Fail example | Fail example                               |
+
